@@ -2,10 +2,10 @@ package tests
 
 import (
 	"os"
+	"package-graph/src/config"
 	"path/filepath"
 	"strings"
 	"testing"
-	"package-graph/src/config"
 )
 
 func TestLoadConfig(t *testing.T) {
