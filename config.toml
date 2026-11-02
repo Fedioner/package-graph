@@ -1,15 +1,18 @@
 # Имя анализируемого пакета
-package = "requests"
+package = "A"
 
 # URL-адрес репозитория или путь к файлу тестового репозитория
-repository = "https://pypi.org"
+repository = "test.txt"
 
 # Режим работы с тестовым репозиторием
-test_mode = false
+test_mode = true
 
 # Режим вывода зависимостей в формате ASCII-дерева
 print_tree = true
 
+# Включать зависимости, связанные с дополнительными возможностями
+include_extra = false
+
 # Подстрока для фильтрации пакетов
-filter = "smth"
+filter = "B"
 

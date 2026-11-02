@@ -15,6 +15,7 @@ type packageInfo struct {
 	} `json:"info"`
 }
 
+// GetDependencies получает прямые зависимости пакета из PyPI.
 func GetDependencies(repositoryURL, packageName string) ([]string, error) {
 	repositoryURL = strings.TrimRight(repositoryURL, "/")
 	url := fmt.Sprintf("%s/pypi/%s/json", repositoryURL, packageName)
