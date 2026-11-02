@@ -10,14 +10,17 @@ import (
 	"github.com/pelletier/go-toml/v2"
 )
 
+// Config содержит настройки программы.
 type Config struct {
-	Package    string `toml:"package"`
-	Repository string `toml:"repository"`
-	TestMode   bool   `toml:"test_mode"`
-	ASCIITree  bool   `toml:"print_tree"`
-	Filter     string `toml:"filter"`
+	Package      string `toml:"package"`
+	Repository   string `toml:"repository"`
+	TestMode     bool   `toml:"test_mode"`
+	ASCIITree    bool   `toml:"print_tree"`
+	IncludeExtra bool   `toml:"include_extra"`
+	Filter       string `toml:"filter"`
 }
 
+// LoadConfig читает и проверяет файл настроек.
 func LoadConfig(path string) (Config, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {

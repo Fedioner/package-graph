@@ -2,10 +2,11 @@ package tests
 
 import (
 	"os"
-	"package-graph/src/config"
 	"path/filepath"
 	"strings"
 	"testing"
+
+	"package-graph/src/config"
 )
 
 func TestLoadConfig(t *testing.T) {
@@ -20,8 +21,10 @@ func TestLoadConfig(t *testing.T) {
 		{"неверный test_mode", "package = 'A'\nrepository = 'https://pypi.org'\ntest_mode = 'yes'", "TestMode"},
 		{"неверный print_tree", "package = 'A'\nrepository = 'https://pypi.org'\nprint_tree = 123", "ASCIITree"},
 		{"неверный filter", "package = 'A'\nrepository = 'https://pypi.org'\nfilter = 123", "Filter"},
-		{"неизвестный параметр", "package = 'A'\nrepository = 'https://pypi.org'\nprint_tre = true", "print_tre"},
-		{"отсутствует тестовый файл", "package = 'A'\nrepository = 'missing.txt'\ntest_mode = true", "тестовый файл"},
+		{"неизвестный параметр",
+			"package = 'A'\nrepository = 'https://pypi.org'\nprint_tre = true", "print_tre"},
+		{"отсутствует тестовый файл",
+			"package = 'A'\nrepository = 'missing.txt'\ntest_mode = true", "тестовый файл"},
 	}
 
 	for _, test := range tests {
