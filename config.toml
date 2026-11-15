@@ -16,3 +16,9 @@ include_extra = false
 # Подстрока для фильтрации пакетов
 filter = "B"
 
+# Режим обратных зависимостей
+reverse = false
+
+# Пакеты, среди которых ищем обратные зависимости в PyPI
+reverse_candidates = []
+

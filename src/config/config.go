@@ -12,12 +12,14 @@ import (
 
 // Config содержит настройки программы.
 type Config struct {
-	Package      string `toml:"package"`
-	Repository   string `toml:"repository"`
-	TestMode     bool   `toml:"test_mode"`
-	ASCIITree    bool   `toml:"print_tree"`
-	IncludeExtra bool   `toml:"include_extra"`
-	Filter       string `toml:"filter"`
+	Package      string   `toml:"package"`
+	Repository   string   `toml:"repository"`
+	TestMode     bool     `toml:"test_mode"`
+	ASCIITree    bool     `toml:"print_tree"`
+	IncludeExtra bool     `toml:"include_extra"`
+	Filter       string   `toml:"filter"`
+	Reverse      bool     `toml:"reverse"`
+	Candidates   []string `toml:"reverse_candidates"`
 }
 
 // LoadConfig читает и проверяет файл настроек.
