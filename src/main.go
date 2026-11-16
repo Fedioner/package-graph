@@ -47,7 +47,7 @@ func run() error {
 	if cfg.Reverse {
 		printReverse(graph, root)
 	} else {
-		printGraph(graph)
+		printGraph(graph, root, cfg.ASCIITree)
 	}
 	return nil
 }
@@ -70,19 +70,11 @@ func printReverse(graph tree.Graph, root string) {
 	}
 }
 
-func printGraph(graph tree.Graph) {
-	for packageName, dependencies := range graph.Dependencies {
-		for _, dependency := range dependencies {
-			if err := graph.Errors[dependency.PackageName]; err != nil {
-				fmt.Printf("%s → ошибка пакета %s: %v\n", packageName, dependency.PackageName, err)
-				continue
-			}
-			fmt.Printf("%s → %s%s\n",
-				packageName,
-				dependency.PackageName,
-				dependency.VersionLimit,
-			)
-		}
+func printGraph(graph tree.Graph, root string, printTree bool) {
+	fmt.Print(tree.PlantUML(graph))
+	if printTree {
+		fmt.Println()
+		fmt.Print(tree.ASCIITree(graph, root))
 	}
 }
 
